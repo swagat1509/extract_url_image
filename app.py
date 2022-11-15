@@ -61,14 +61,6 @@ def get_news_urls(getarticles: NewsArticle):
 
 
 
-
-        
-
-
-
-
-
-
 # api to extract the title, descritpion and the body of the news: 
 @app.post('/get_news_url_from_keywords')
 def news_articles(getarticles: NewsArticle):
@@ -102,31 +94,6 @@ def news_articles(getarticles: NewsArticle):
     else:
         return ("No news found related to the keywords")
            
-
-
-
-"""
-Description of the below post method:
-After the docker image is created from this the below post method "/keyword_sentiment_post_text" 
-calls the "/getsentiment" post method from the other docker image and then takes the result from there
-and displayes as the output of the below method. 
-
-class Sentiment(BaseModel):
-    
-    
-    sentimenttext : str
-
-
-@app.post('/keyword_sentiment_post_text')
-def get_keyword_sentiment(keyword_sentiment_post:Sentiment):
-    t = {"text":keyword_sentiment_post.sentimenttext}
-    response = requests.post('http://second:8080/getsentiment', data = json.dumps(t))
-    response = response.text
-    return (json.loads(response))
-
-
-"""
-
 
 
 if __name__ == "__main__":
